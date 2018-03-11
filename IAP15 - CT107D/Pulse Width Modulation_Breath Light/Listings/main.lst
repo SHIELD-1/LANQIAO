@@ -1,4 +1,4 @@
-C51 COMPILER V9.00   MAIN                                                                  02/01/2018 17:51:32 PAGE 1   
+C51 COMPILER V9.00   MAIN                                                                  02/26/2018 18:03:43 PAGE 1   
 
 
 C51 COMPILER V9.00, COMPILATION OF MODULE MAIN
@@ -21,23 +21,22 @@ line level    source
   11          {
   12   1        allinit();
   13   1        Timer1_Init();
-  14   1        EA=1;
-  15   1        P2=(P2&0x1f)|0x80;
-  16   1        while(1);
-  17   1        
-  18   1      //  //产生方波的部分
-  19   1      //  smg_Timer0init();
-  20   1      //  while(1)
-  21   1      //  {
-  22   1      //    P2 =(P2&0x1f)|0xA0;
-  23   1      //    if(cnt < 50)
-  24   1      //    Output = 1;
-  25   1      //    else
-  26   1      //    Output = 0;
-  27   1      //    P2 &= 0x1f;
-  28   1      //  }
-  29   1        
-  30   1      }
+  14   1        P2=(P2&0x1f)|0x80;
+  15   1        while(1);
+  16   1        
+  17   1      //  //产生方波的部分
+  18   1      //  smg_Timer0init();
+  19   1      //  while(1)
+  20   1      //  {
+  21   1      //    P2 =(P2&0x1f)|0xA0;
+  22   1      //    if(cnt < 50)
+  23   1      //    Output = 1;
+  24   1      //    else
+  25   1      //    Output = 0;
+  26   1      //    P2 &= 0x1f;
+  27   1      //  }
+  28   1        
+  29   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE

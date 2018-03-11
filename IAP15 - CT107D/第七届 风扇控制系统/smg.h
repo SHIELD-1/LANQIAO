@@ -5,15 +5,19 @@
 #define _SMG_H_
 #define uchar unsigned char
 #define uint unsigned int
+
 uint cnt;   //cnt为全局变量，放到最前面可以在别的文件中使用(秒表中用到的)
+
+bit flag1s = 0;
+
 //共阳极数码管显示段码，高不亮，低亮（这里指的是阴极端所加电压）
            //     0    1    2    3     4    5    6    7
 uchar tab[28]={ 0xc0,0xf9,0xa4,0xb0, 0x99,0x92,0x82,0xf8,
-	         //   8    9    A    b     C    d    E    F   灭    -
+	         //   8    9    A    b     C    d    E    F   灭16  -
              	0x80,0x90,0x88,0x83, 0xc6,0xa1,0x86,0x8e,0xff,0xbf,
 	         //   0.          1.        2.        3.          4.       5.         6.       7.
 	            0xc0&0x7f,0xf9&0x7f,0xa4&0x7f,0xb0&0x7f, 0x99&0x7f,0x92&0x7f,0x82&0x7f,0xf8&0x7f,
-	         //      8.       9.
+	         //      8.       9.        取小数部分 + 18
              	0x80&0x7f,0x90&0x7f};
 
 uchar dspbuff[]={16,16,16,16,16,16,16,16};
@@ -53,8 +57,11 @@ void smg_timer0()interrupt 1 //定时器0对应 interrupt 1
 	TH0=(65535-2000)/256;
 	TL0=(65535-2000)%256;
 	display();
-	if(cnt == 100)
-	cnt = 0;
+	if(cnt == 500)
+	{
+		cnt = 0;
+		flag1s = 1;
+	}
 }
 
 #endif

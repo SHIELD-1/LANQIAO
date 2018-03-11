@@ -11,7 +11,6 @@ void main(void)
 {
 	allinit();
 	Timer1_Init();
-	EA=1;
 	P2=(P2&0x1f)|0x80;
 	while(1);
 	

@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        02/01/2018  17:51:33  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        02/26/2018  18:03:44  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -28,14 +28,14 @@ LINK MAP OF MODULE:  .\Objects\IAP15F_project (MAIN)
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
-            CODE    0003H     0012H     UNIT         ?PR?MAIN?MAIN
-                    0015H     0006H                  *** GAP ***
+            CODE    0003H     0013H     UNIT         ?PR?TIMER1_INIT?MAIN
+                    0016H     0005H                  *** GAP ***
             CODE    001BH     0003H     ABSOLUTE     
             CODE    001EH     008CH     UNIT         ?C_C51STARTUP
             CODE    00AAH     006DH     UNIT         ?PR?TIMER1?MAIN
             CODE    0117H     003AH     UNIT         ?PR?ALLINIT?MAIN
-            CODE    0151H     0011H     UNIT         ?PR?TIMER1_INIT?MAIN
-            CODE    0162H     000DH     UNIT         ?C_INITSEG
+            CODE    0151H     0010H     UNIT         ?PR?MAIN?MAIN
+            CODE    0161H     000DH     UNIT         ?C_INITSEG
 
 
 
@@ -59,7 +59,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\IAP15F_project (MAIN)
 
   VALUE           TYPE          NAME
   ----------------------------------
-BL51 BANKED LINKER/LOCATER V6.22                                                      02/01/2018  17:51:33  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/26/2018  18:03:44  PAGE 2
 
 
 
@@ -78,8 +78,8 @@ SYMBOL TABLE OF MODULE:  .\Objects\IAP15F_project (MAIN)
   D:00B8H         PUBLIC        IP
   D:0009H         SYMBOL        PWMDirection
   D:00D8H         PUBLIC        CCON
-  C:0003H         PUBLIC        main
-  C:0151H         PUBLIC        Timer1_Init
+  C:0151H         PUBLIC        main
+  C:0003H         PUBLIC        Timer1_Init
   D:0098H         PUBLIC        SCON
   B:0080H.4       PUBLIC        P04
   C:00AAH         PUBLIC        Timer1
@@ -113,67 +113,67 @@ SYMBOL TABLE OF MODULE:  .\Objects\IAP15F_project (MAIN)
   C:0150H         LINE#         20
   -------         ENDPROC       ALLINIT
   -------         PROC          TIMER1_INIT
-  C:0151H         LINE#         28
-  C:0151H         LINE#         29
-  C:0151H         LINE#         30
-  C:0154H         LINE#         31
-  C:0157H         LINE#         32
-  C:015AH         LINE#         33
-BL51 BANKED LINKER/LOCATER V6.22                                                      02/01/2018  17:51:33  PAGE 3
+  C:0003H         LINE#         31
+  C:0003H         LINE#         32
+  C:0003H         LINE#         33
+  C:0006H         LINE#         34
+  C:0009H         LINE#         35
+  C:000CH         LINE#         36
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/26/2018  18:03:44  PAGE 3
 
 
-  C:015DH         LINE#         34
-  C:015FH         LINE#         35
-  C:0161H         LINE#         36
+  C:000FH         LINE#         37
+  C:0011H         LINE#         38
+  C:0013H         LINE#         39
+  C:0015H         LINE#         40
   -------         ENDPROC       TIMER1_INIT
   -------         PROC          TIMER1
   -------         DO            
   D:0008H         SYMBOL        PWMConter_NOW
   -------         ENDDO         
-  C:00AAH         LINE#         40
-  C:00AEH         LINE#         43
-  C:00B1H         LINE#         44
-  C:00B4H         LINE#         46
-  C:00BDH         LINE#         47
-  C:00BDH         LINE#         48
-  C:00C0H         LINE#         49
-  C:00CDH         LINE#         50
-  C:00CDH         LINE#         51
-  C:00CFH         LINE#         52
-  C:00D7H         LINE#         53
-  C:00D7H         LINE#         54
-  C:00DAH         LINE#         55
-  C:00DDH         LINE#         56
-  C:00DDH         LINE#         57
-  C:00DDH         LINE#         58
-  C:00EBH         LINE#         59
-  C:00EBH         LINE#         60
-  C:00EDH         LINE#         61
-  C:00F6H         LINE#         62
-  C:00F6H         LINE#         63
-  C:00F9H         LINE#         64
-  C:00FCH         LINE#         65
-  C:00FCH         LINE#         66
-  C:00FCH         LINE#         67
-  C:00FFH         LINE#         68
-  C:00FFH         LINE#         70
-  C:0108H         LINE#         71
-  C:0108H         LINE#         72
-  C:010BH         LINE#         73
-  C:010DH         LINE#         74
-  C:010FH         LINE#         76
-  C:010FH         LINE#         77
-  C:0112H         LINE#         78
-  C:0112H         LINE#         79
+  C:00AAH         LINE#         44
+  C:00AEH         LINE#         47
+  C:00B1H         LINE#         48
+  C:00B4H         LINE#         50
+  C:00BDH         LINE#         51
+  C:00BDH         LINE#         52
+  C:00C0H         LINE#         53
+  C:00CDH         LINE#         54
+  C:00CDH         LINE#         55
+  C:00CFH         LINE#         56
+  C:00D7H         LINE#         57
+  C:00D7H         LINE#         58
+  C:00DAH         LINE#         59
+  C:00DDH         LINE#         60
+  C:00DDH         LINE#         61
+  C:00DDH         LINE#         62
+  C:00EBH         LINE#         63
+  C:00EBH         LINE#         64
+  C:00EDH         LINE#         65
+  C:00F6H         LINE#         66
+  C:00F6H         LINE#         67
+  C:00F9H         LINE#         68
+  C:00FCH         LINE#         69
+  C:00FCH         LINE#         70
+  C:00FCH         LINE#         71
+  C:00FFH         LINE#         72
+  C:00FFH         LINE#         74
+  C:0108H         LINE#         75
+  C:0108H         LINE#         76
+  C:010BH         LINE#         77
+  C:010DH         LINE#         78
+  C:010FH         LINE#         80
+  C:010FH         LINE#         81
+  C:0112H         LINE#         82
+  C:0112H         LINE#         83
   -------         ENDPROC       TIMER1
   -------         PROC          MAIN
-  C:0003H         LINE#         10
-  C:0003H         LINE#         11
-  C:0003H         LINE#         12
-  C:0006H         LINE#         13
-  C:0009H         LINE#         14
-  C:000BH         LINE#         15
-  C:0013H         LINE#         16
+  C:0151H         LINE#         10
+  C:0151H         LINE#         11
+  C:0151H         LINE#         12
+  C:0154H         LINE#         13
+  C:0157H         LINE#         14
+  C:015FH         LINE#         15
   -------         ENDPROC       MAIN
   -------         ENDMOD        MAIN
 

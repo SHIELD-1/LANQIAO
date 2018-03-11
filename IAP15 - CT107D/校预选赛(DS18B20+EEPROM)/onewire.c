@@ -15,10 +15,8 @@ void Delay_OneWire(unsigned int t) //延时 1us
   比如对于常用的 12M晶振来说：12T模式，一个机器周期为 1us；1T模式，一个机器周期为1/12 us；
   时钟晶振的振荡频率为fosc，则振荡周期Tosc=（1/fosc）。如：晶振频率为12MHZ，则振荡周期Tosc=（1/12us）。
   STC15F2K60S2比89C51速度快了12倍，所以它运行12条指令才能延时为原来的 1 us；*/
-  unsigned char i;
-  while(t--)
-  {
-      for(i=0;i<12;i++);
+  unsign
+	
   }
 }
 
