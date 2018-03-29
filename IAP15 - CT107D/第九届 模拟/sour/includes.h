@@ -14,7 +14,7 @@
 //#include"iic.h"
 //#include"onewire.h"
 //#include"PWM.h"
-#include"uart.h"
+#include"usart.h"
 
 void sys_test();
 void Delay500ms();
