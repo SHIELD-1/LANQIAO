@@ -198,7 +198,7 @@ unsigned char ReadByte_AT24C02(unsigned char add)
 //	IIC_SendByte(0x91); //1001 000 1;选中该器件(前七位是地址，最后一位是R/~W，表示读)
 //	IIC_WaitAck();     //等待应答
 //	temp=IIC_RecByte(); //通过IIC读取采集的值
-//	IIC_Ack(0);         //通过IIC发送应答
+//	IIC_MasterAck(0);         //通过IIC发送应答
 //	IIC_Stop();
 //	return temp;
 //}
