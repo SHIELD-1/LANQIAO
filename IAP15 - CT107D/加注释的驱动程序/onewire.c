@@ -81,15 +81,37 @@ unsigned char Read_DS18B20(void)
 }
 
 /******************************************************************************
-小数时返回值为 float, 主函数调用时用 uint
+整数时返回值为unsigned char, 主函数调用时用 uint
 *******************************************************************************/
 
 unsigned char Temper_Read()
 {
     unsigned char TL,TH;
-	  char temp;            //整数
-//	  unsigned int temp;    //小数
-//	  float temperature;
+    char temp;            //整数
+    Init_DS18B20();       //DS18B20初始化
+    Write_DS18B20(0xCC);  //跳过ROM的字节命令
+    Write_DS18B20(0x44);  //开始转换温度
+    Delay_OneWire(200);   //延时一段时间
+
+    Init_DS18B20();      //再次初始化
+    Write_DS18B20(0xcc);
+    Write_DS18B20(0xbe); //读取指令
+    TL=Read_DS18B20();   //读低八位
+    TH=Read_DS18B20();   //读高8位
+    //整数
+	  temp=(TH<<4)|(TL>>4);
+    //整数
+    return temp;
+}
+/******************************************************************************
+小数时返回值为 float, 主函数调用时用 uint
+*******************************************************************************/
+
+float Temper_Read()
+{
+    unsigned char TL,TH;
+    unsigned int temp;    //小数
+    float temperature;
     Init_DS18B20();       //DS18B20初始化
     Write_DS18B20(0xCC);  //跳过ROM的字节命令
     Write_DS18B20(0x44);  //开始转换思路
@@ -100,15 +122,12 @@ unsigned char Temper_Read()
     Write_DS18B20(0xbe); //读取指令
     TL=Read_DS18B20();   //读低八位
     TH=Read_DS18B20();   //读高8位
-    //整数
-	  temp=(TH<<4)|(TL>>4);
-//    //小数部分	
-//	  temp = (TH & 0x0f);
-//    temp <<=8;
-//    temp |=TL;
-//	  temperature = temp*0.625; //选择精度，得到真实十进制温度值 //0.0625=xx, 0.625=xx.x, 6.25=xx.xx 
-	  //整数
-    return temp;
-//		//小数
-//		return temperature;
+    //小数部分
+    temp = (TH & 0x0f);
+    temp <<=8;
+    temp |=TL;
+    temperature = temp*0.625; //选择精度，得到真实十进制温度值 //0.0625=xx, 0.625=xx.x, 6.25=xx.xx
+    //小数
+    return temperature;
 }
+
